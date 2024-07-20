@@ -1,6 +1,6 @@
 import matplotlib.pyplot as plt
 import numpy as np
-from utils_log_v1 import sigmoid, map_feature
+from utils_log import sigmoid, map_feature
 
 ## Data plotting
 
