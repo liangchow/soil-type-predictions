@@ -2,13 +2,6 @@ import itertools
 import numpy as np
 import math
 
-def load_data(filename):
-    data = np.loadtxt(filename, delimiter=',')
-    X = data[:,[0,1,4]]   # data[:, [0,4]]
-    y = data[:,6]
-    return X, y
-
-
 def initialize_weight(X):
     """
     Initialize weights and biases for the number of features
@@ -43,12 +36,12 @@ def norm_zscore(X):
     
     for j in range(n):
     
-        # Compute mean and std.p
-        mean = np.mean(X[:, j])
-        std = np.std(X[:, j])
+        # Compute mean and std.p from dataframe
+        mean = np.mean(X.iloc[:, j])
+        std = np.std(X.iloc[:, j])
     
         for i in range(m):
-            X_norm[i,j] = (X[i,j] - mean) / std
+            X_norm[i,j] = (X.iloc[i,j] - mean) / std
    
     return X_norm
 
