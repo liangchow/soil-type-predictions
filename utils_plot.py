@@ -7,7 +7,7 @@ from utils_log import sigmoid, map_feature
 
 def plot_data(X, class_0, class_1):
     """
-    Edited for pd.Dataframe(). Specify "Depth" and "SPT_N" for plotting.
+    Edited for pd.DataFrame(). Specify "Depth" and "SPT_N" for plotting.
     """
     
     positive = X.loc[X["Class"] == 1]
@@ -21,9 +21,10 @@ def plot_data(X, class_0, class_1):
 def plot_decision_boundary(w, b, X, y, degree):
     """
     Credit to dibgerge on Github for this plotting code.
+    Modified for pd.DataFrame(). 
     """
      
-    plot_data(X)
+    #plot_data(X,y)
     
     if X.shape[1] <= 2:
         plot_x = np.array([min(X[:, 0]), max(X[:, 0])])
