@@ -4,13 +4,15 @@ from utils_log import sigmoid, map_feature
 
 ## Data plotting
 
-def plot_data(X, y, pos_label="y=1", neg_label="y=0"):
-    positive = y == 1
-    negative = y == 0
+def plot_data(X, class_0, class_1):
+    # Edited for pd.Dataframe(). Specify "Depth" and "SPT_N" for plotting.
+    
+    positive = X.loc[X["Class"] == 1]
+    negative = X.loc[X["Class"] == 0]
     
     # Plot examples
-    plt.plot(X[positive, 0], X[positive, 1], 'k+', label=pos_label) # x=depth, y=SPT-N
-    plt.plot(X[negative, 0], X[negative, 1], 'yo', label=neg_label) # x=depth, y=SPT-N
+    plt.plot(positive["Depth"], positive["SPT_N"], 'k+', label=class_1) # x=depth, y=SPT-N
+    plt.plot(negative["Depth"], negative["SPT_N"], 'yo', label=class_0) # x=depth, y=SPT-N
     
     
 def plot_decision_boundary(w, b, X, y, degree):
